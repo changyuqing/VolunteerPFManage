@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css">
+	<style type="text/css">
+		body{
+			margin:0;
+			padding: 0;
+		}
+		#customers  
+		  {  
+		  font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;  
+		  width:100%;  
+		  border-collapse:collapse;  
+		  }  
+		  
+		#customers td #customers th   
+		  {  
+		  font-size:1em;  
+		  border:1px solid #98bf21;  
+		  padding:3px 7px 2px 7px;  
+		  }  
+		  
+		#customers th   
+		  {  
+		  font-size:1.1em;  
+		  text-align:left;  
+		  padding-top:5px;  
+		  padding-bottom:4px;  
+		  background-color:#A7C942;  
+		  color:#ffffff;  
+		  }  
+		  
+		#customers tr .alt td   
+		  {  
+		  color:#000000;  
+		  background-color:#EAF2D3;  
+		  }  
+	</style>
+</head>
+<body>
+		<% include uheader.ejs %>
+
+ <!-- content start -->
+    <div class="admin-content">
+        <div class="admin-content-body">
+            <div class="am-cf am-padding am-padding-bottom-0">
+                <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg"></strong> 
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="am-g">
+                <div class="am-u-sm-12 am-u-md-9">
+                    <div class="am-btn-toolbar">
+                        <div class="am-btn-group am-btn-group-xs">
+                            
+                           
+                        </div>
+                    </div>
+                </div>
+
+
+                <script type="text/javascript">
+                	var selects=document.getElementsByTagName('select');
+                	selects[0].onchange=function(){
+                		console.log(this.value);
+                	}
+
+                </script>
+                <div class="am-u-sm-12 am-u-md-3">
+                    <div class="am-input-group am-input-group-sm">
+                        <input type="text" class="am-form-field">
+                        <span class="am-input-group-btn">
+            <button class="am-btn am-btn-default" type="button">搜索</button>
+          </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="am-g">
+                <div class="am-u-sm-12">
+                    <form class="am-form">
+                        <table class="am-table am-table-striped am-table-hover table-main">
+                            <thead>
+                            <tr>
+
+                                <th class="table-id">ID</th>
+                                <th class="table-title">标题</th>
+                                <th class="table-date am-hide-sm-only">日期</th>
+                                <th class="table-state">状态</th>
+                                <th class="table-set">操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <% for(var i=0;i<data.length;i++){ %>
+	                            	<% if(data[i].state===-1){%>
+	                            		<tr class="am-danger"> 
+	                            		<td><%= data[i]._id %></td>
+		                                <td><a href="#"><%= data[i].name %></a></td>
+		                                <td class="am-hide-sm-only"><%= data[i].date %></td>
+		                                <td>审核未通过</td>
+		                                <td>
+		                                    <div class="am-btn-toolbar">
+		                                        <div class="am-btn-group am-btn-group-xs">
+		                                            <a href="?act=mod&id=<%=data[i]._id%>"><button type="button" class="am-btn am-btn-default am-btn-xs am-text-secondary"><span
+		                                                    class="am-icon-pencil-square-o"></span> 编辑
+		                                            </button></a>
+		                                            <a href="?act=detail&id=<%=data[i]._id%>"><button type="button" class="am-btn am-btn-default am-btn-xs am-hide-sm-only"><span
+		                                                    class="am-icon-copy"></span> 查看详情
+		                                            </button></a>
+		                                            <!-- <button class="am-btn am-btn-default am-btn-xs am-hide-sm-only"><span
+		                                                    class="am-icon-copy"></span> 评价
+		                                            </button> -->
+		                                            <a href="?act=del&id=<%=data[i]._id%>"><button type="button" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only">
+		                                                <span class="am-icon-trash-o"></span> 删除
+		                                            </button></a>
+		                                        </div>
+		                                    </div>
+		                                </td>
+		                            </tr>
+	                            	<% }else if(data[i].state===0){%>
+	                            	<tr class="am-warning">
+	                            		<td><%= data[i]._id %></td>
+		                                <td><a href="#"><%= data[i].name %></a></td>
+		                                <td class="am-hide-sm-only"><%= data[i].date %></td>
+		                                <td>待审核</td>
+		                                <td>
+		                                    <div class="am-btn-toolbar">
+		                                        <div class="am-btn-group am-btn-group-xs">
+		                                            <a href="?act=mod&id=<%=data[i]._id%>"><button type="button" class="am-btn am-btn-default am-btn-xs am-text-secondary"><span
+		                                                    class="am-icon-pencil-square-o"></span> 编辑
+		                                            </button></a>
+		                                            <a href="?act=detail&id=<%=data[i]._id%>"><button type="button" class="am-btn am-btn-default am-btn-xs am-hide-sm-only"><span
+		                                                    class="am-icon-copy"></span> 查看详情
+		                                            </button></a>
+		                                            <!-- <button class="am-btn am-btn-default am-btn-xs am-hide-sm-only"><span
+		                                                    class="am-icon-copy"></span> 评价
+		                                            </button> -->
+		                                            <a href="?act=del&id=<%=data[i]._id%>"><button type="button" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only">
+		                                                <span class="am-icon-trash-o"></span> 删除
+		                                            </button></a>
+		                                        </div>
+		                                    </div>
+		                                </td>
+		                            </tr>
+	                          		<% }else if(data[i].state===1){%>
+	                            	<tr class="am-success">
+	                            		<td><%= data[i]._id %></td>
+		                                <td><a href="#"><%= data[i].name %></a></td>
+		                                <td class="am-hide-sm-only"><%= data[i].date %></td>
+		                                <td>报名中</td>
+		                                <td>
+		                                    <div class="am-btn-toolbar">
+		                                        <div class="am-btn-group am-btn-group-xs">
+		                                            <!-- <button class="am-btn am-btn-default am-btn-xs am-text-secondary"><span
+		                                                    class="am-icon-pencil-square-o"></span> 编辑
+		                                            </button> -->
+		                                            <a href="?act=detail&id=<%=data[i]._id%>"><button type="button" class="am-btn am-btn-default am-btn-xs am-hide-sm-only"><span
+		                                                    class="am-icon-copy"></span> 查看详情
+		                                            </button></a>
+		                                            <a href="?act=end&id=<%=data[i]._id%>"><button type="button" class="am-btn am-btn-default am-btn-xs am-hide-sm-only"><span
+		                                                    class="am-icon-copy"></span> 截止报名
+		                                            </button></a>
+		                                            <!-- <a href="?act=del&id=<%=data[i]._id%>"><button type="button" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only">
+		                                                <span class="am-icon-trash-o"></span> 删除
+		                                            </button></a> -->
+		                                        </div>
+		                                    </div>
+		                                </td>
+		                            </tr>
+	                          		<% }else if(data[i].state===2){%>
+	                            	<tr class="am-primary">
+	                            		<td><%= data[i]._id %></td>
+		                                <td><a href="#"><%= data[i].name %></a></td>
+		                                <td class="am-hide-sm-only"><%= data[i].date %></td>
+		                                <td>评价中</td>
+		                                <td>
+		                                    <div class="am-btn-toolbar">
+		                                        <div class="am-btn-group am-btn-group-xs">
+		                                          <!--   <button class="am-btn am-btn-default am-btn-xs am-text-secondary"><span
+		                                                    class="am-icon-pencil-square-o"></span> 编辑
+		                                            </button> -->
+		                                            <a href="?act=detail&id=<%=data[i]._id%>"><button type="button" class="am-btn am-btn-default am-btn-xs am-hide-sm-only"><span
+		                                                    class="am-icon-copy"></span> 查看详情
+		                                            </button></a>
+		                                            <a href="?act=assess&id=<%=data[i]._id%>"><button type="button" class="am-btn am-btn-default am-btn-xs am-hide-sm-only"><span
+		                                                    class="am-icon-copy"></span> 评价
+		                                            </button></a>
+		                                            <a href="?act=actiEnding&id=<%=data[i]._id%>"><button type="button" class="am-btn am-btn-default am-btn-xs am-hide-sm-only"><span
+		                                                    class="am-icon-copy"></span> 归档
+		                                            </button></a>
+		                                         <!--    <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only">
+		                                                <span class="am-icon-trash-o"></span> 删除
+		                                            </button> -->
+		                                        </div>
+		                                    </div>
+		                                </td>
+		                            </tr>
+	                          		<% }else if(data[i].state===3){%>
+	                            	<tr class="am-active">
+	                            		<td><%= data[i]._id %></td>
+		                                <td><a href="#"><%= data[i].name %></a></td>
+		                                <td class="am-hide-sm-only"><%= data[i].date %></td>
+		                                <td>已归档</td>
+		                                <td>
+		                                    <div class="am-btn-toolbar">
+		                                        <div class="am-btn-group am-btn-group-xs">
+		                                           <!--  <button class="am-btn am-btn-default am-btn-xs am-text-secondary"><span
+		                                                    class="am-icon-pencil-square-o"></span> 编辑
+		                                            </button> -->
+		                                            <a href="?act=detail&id=<%=data[i]._id%>"><button type="button" class="am-btn am-btn-default am-btn-xs am-hide-sm-only"><span
+		                                                    class="am-icon-copy"></span> 查看详情
+		                                            </button></a>
+		                                            <!-- <button class="am-btn am-btn-default am-btn-xs am-hide-sm-only"><span
+		                                                    class="am-icon-copy"></span> 评价
+		                                            </button> -->
+		                                           <!--  <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only">
+		                                                <span class="am-icon-trash-o"></span> 删除
+		                                            </button> -->
+		                                        </div>
+		                                    </div>
+		                                </td>
+		                            </tr>
+	                          		<% }%>
+	                               
+                            <% } %>
+
+                            </tbody>
+                        </table>
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+    <!-- content end -->
+	<% include footer.ejs %>
+</body>
+
+</html>

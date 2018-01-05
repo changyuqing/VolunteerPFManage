@@ -1,0 +1,79 @@
+
+<% include header.ejs %>
+ <!-- content start -->
+    <div class="admin-content">
+        <div class="admin-content-body">
+            <div class="am-cf am-padding am-padding-bottom-0">
+                <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">发布者管理</strong> /
+                    <small>发布者审查</small>
+                </div>
+            </div>
+
+            <hr>
+
+            <a style="color:white;text-decoration: none" href="/admin/publisherCheck"><button class="am-btn am-btn-primary am-btn-xs" type="button"><<返回</button></a>
+            <div class="am-cf am-margin-top">
+                <div class="am-u-md-4 am-text-right">
+                    发布者名称
+                </div>
+                <div class="am-u-md-8 am-u-end col-end">
+                    <%= data["name"] %>
+                </div>
+            </div>
+            <div class="am-cf am-margin-top">
+                <div class="am-u-md-4 am-text-right">
+                    发布者地址
+                </div>
+                <div class="am-u-md-8 am-u-end col-end">
+                    <%= data.address %>
+                </div>
+            </div>
+            <div class="am-cf am-margin-top">
+                <div class="am-u-md-4 am-text-right">
+                    负责人
+                </div>
+                <div class="am-u-md-4 am-u-end col-end">
+                   <%= data.leader %>
+                </div>
+                <div class="am-u-md-4"></div>
+            </div>
+            <div class="am-cf am-margin-top">
+                <div class="am-u-md-4 am-text-right">
+                    联系电话
+                </div>
+                <div class="am-u-md-8 am-u-end col-end">
+                    <%= data.tel %>
+                </div>
+            </div>
+            <div class="am-cf am-margin-top">
+                <div class="am-u-md-4 am-text-right">
+                    证件信息
+                </div>
+                <div class="am-u-md-8 am-u-end col-end">
+                    <%= data.leaderID %>
+                </div>
+            </div>
+            <div class="am-cf am-margin-top">
+
+                <div class="am-u-md-5 am-text-right">
+                    <a href="?act=pass&id=<%= data._id %>"><button type="button" class="am-btn am-btn-success am-round">通过</button></a>
+                </div>
+                <div class="am-u-md-2 am-text-right">
+                    <a href="?act=reject&id=<%= data._id %>"><button type="button" class="am-btn am-btn-danger am-round">不通过</button></a>
+                </div>
+                <div class="am-u-nd-5"></div>
+            </div>
+
+
+            </form>
+        </div>
+    </div>
+
+    <footer class="admin-content-footer">
+        <hr>
+        <p class="am-padding-left">© 2014 AllMobilize, Inc. Licensed under MIT license.</p>
+    </footer>
+</div>
+<!-- content end -->
+
+<% include footer.ejs %>

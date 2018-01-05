@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css">
+	<style type="text/css">
+		body{
+			margin:0;
+			padding: 0;
+		}
+		#customers  
+		  {  
+		  font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;  
+		  width:100%;  
+		  border-collapse:collapse;  
+		  }  
+		  
+		#customers td #customers th   
+		  {  
+		  font-size:1em;  
+		  border:1px solid #98bf21;  
+		  padding:3px 7px 2px 7px;  
+		  }  
+		  
+		#customers th   
+		  {  
+		  font-size:1.1em;  
+		  text-align:left;  
+		  padding-top:5px;  
+		  padding-bottom:4px;  
+		  background-color:#A7C942;  
+		  color:#ffffff;  
+		  }  
+		  
+		#customers tr .alt td   
+		  {  
+		  color:#000000;  
+		  background-color:#EAF2D3;  
+		  }  
+	</style>
+</head>
+<body>
+		<% include uheader.ejs %>
+
+ <!-- content start -->
+    <div class="admin-content">
+        <div class="admin-content-body">
+            <div class="am-cf am-padding am-padding-bottom-0">
+                <div class="am-fl am-cf">
+                    <strong class="am-text-primary am-text-lg">创建活动</strong>
+                </div>
+            </div>
+
+            <hr>
+
+
+            <form class="am-form" method="post" enctype="multipart/form-data">
+                <fieldset>
+
+                    <div class="am-form-group">
+                        <label for="doc-ipt-name-1">活动名</label>
+                        <input name="name" type="text" class="" id="doc-ipt-name-1" placeholder="Enter Activity Name" required>
+                    </div>
+
+                    <div class="am-form-group am-form-icon">
+                        <label for="doc-ipt-file-1">日期</label>
+                        <i class="am-icon-calendar"></i>
+                        <input name="date" type="text" class="am-form-field" placeholder="Enter Date" required>
+                    </div>
+                    <div class="am-form-group">
+                        <label for="doc-ipt-address-1">地址</label>
+                        <input name="address" type="text" class="" id="doc-ipt-address-1" placeholder="Enter Address" required>
+                    </div>
+                    <div class="am-form-group">
+                        <label for="doc-ipt-time-1">时长</label>
+                        <input name="time" type="text" class="" id="doc-ipt-time-1" placeholder="Enter Time" required>
+                    </div>
+
+                    <div class="am-form-group">
+                        <label for="doc-ipt-file-1">活动图片</label>
+                        <input name="image" type="file" id="doc-ipt-file-1" required>
+                        <p class="am-form-help">请选择要上传的图片...</p>
+                    </div>
+
+                    <div class="am-form-group">
+                        <label for="doc-ta-1">简介</label>
+                        <textarea name="intro" class="" rows="5" id="doc-ta-1" required></textarea>
+                    </div>
+
+                    <div class="am-form-group">
+                        <label for="doc-ta-2">要求</label>
+                        <textarea name="requirement" class="" rows="5" id="doc-ta-2" required></textarea>
+                    </div>
+
+
+                    <div class="am-form-group">
+                        <label for="doc-ta-3">福利</label>
+                        <textarea name="welfare" class="" rows="5" id="doc-ta-3" required></textarea>
+                    </div>
+
+                    <p>
+                        <button type="submit" class="am-btn am-btn-primary">提交</button>
+                    </p>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+
+    <footer class="admin-content-footer">
+        <hr>
+        <p class="am-padding-left">© 2014 AllMobilize, Inc. Licensed under MIT license.</p>
+    </footer>
+
+</div>
+<!-- content end -->
+	<% include footer.ejs %>
+</body>
+
+</html>

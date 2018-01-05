@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="">
+  <style>
+    body {
+      width: 1100px;
+      height: 100%;
+      padding-top: 40px;
+      margin: 65px auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-3"></div>
+      <div class="col-6">
+        <!-- Image and text -->
+        <nav class="navbar navbar-light ">
+          <div class=" mx-auto">
+            <h1>发布者注册</h1>
+          </div>
+        </nav>
+      </div>
+      <div class="col-3"></div>
+    </div>
+
+
+    <div class="row ">
+      <div class="col-3"></div>
+      <div class="col-6 card">
+        <form class="card-body" method="post">
+          <% if(info){ %>
+          <div id="" class="alert alert-danger" role="alert">
+            <%=info%>
+          </div>
+          <% } %>
+          <div class="form-group ">
+            <label for="exampleInputEmail1">用户名</label>
+            <input value="<%= data.username%>" name='username' type="text" class="form-control" aria-describedby="emailHelp" placeholder="Enter Username"
+              required>
+            <div class="invalid-feedback">
+              请输入用户名
+            </div>
+          </div>
+          <div class="form-group ">
+            <label for="exampleInputEmail1">密码</label>
+            <input value="<%= data.password%>" type="password" name='password' type="text" class="form-control" aria-describedby="emailHelp" placeholder="Enter Password"
+              required>
+            <div class="invalid-feedback">
+              请输入密码
+            </div>
+          </div>
+          <div class="form-group ">
+            <label for="exampleInputEmail1">确认密码</label>
+            <input value="<%= data.repassword%>"  type="password" name='repassword' type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Password Confirm"
+              required>
+            <div class="invalid-feedback">
+              请再次输入密码
+            </div>
+          </div>
+          <div class="form-group ">
+            <label for="exampleInputEmail1">组织名称</label>
+            <input value="<%= data.name%>"  name='name' type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Enter Organization Name"
+              required>
+            <div class="invalid-feedback">
+              请输入组织名称
+            </div>
+          </div>
+          <div class="form-group ">
+            <label for="exampleInputEmail1">组织地址</label>
+            <input value="<%= data.address%>" name='address' type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Enter Organization Address"
+              required>
+            <div class="invalid-feedback">
+              请输入组织地址
+            </div>
+          </div>
+          <div class="form-group ">
+            <label for="exampleInputEmail1">负责人姓名</label>
+            <input value="<%= data.leader%>"  name='leader' type="text" class="form-control" aria-describedby="emailHelp" placeholder="Enter Leader Name"
+              required>
+            <div class="invalid-feedback">
+              请输入负责人姓名
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">联系电话</label>
+            <input value="<%= data.tel%>"  name='tel' class="form-control" placeholder="Enter Telephone" required>
+            <div class="invalid-feedback">
+              请输入联系电话
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">身份证件</label>
+            <input value="<%= data.leaderID%>" name='leaderID' class="form-control" placeholder="Enter ID" required>
+            <div class="invalid-feedback">
+              请输入身份证件
+            </div>
+          </div>
+          <div class="form-check">
+            <!-- <label class="form-check-label">
+              <input value="<%= data.username%>" type="checkbox" class="form-check-input"> 保持登录
+            </label> -->
+          </div>
+          
+          <button type="submit" class="btn btn-primary btn-block" style="margin-top: 40px;">注册</button>
+        </form>
+      </div>
+      <div class="col-3"></div>
+    </div>
+  </div>
+</body>
+
+</html>

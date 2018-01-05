@@ -1,0 +1,40 @@
+
+	<% include uheader.ejs %>
+
+<!-- content start -->
+    <div class="admin-content">
+        <div class="admin-content-body">
+            <div class="am-cf am-padding am-padding-bottom-0">
+                <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">首页</strong> 
+                </div>
+            </div>
+
+            <hr>
+            <style type="text/css">
+           #index-title{
+                width: 315px;
+    margin: 50px auto;
+    font-size: 35px;
+    font-family: "微软雅黑";
+    text-shadow: 1px 1px 1px skyblue;
+    color: #0e90d2;
+           }
+      </style>
+      <div id="index-title">欢迎进入发布者系统</div>
+ <ul class="am-avg-sm-1 am-avg-md-1 am-margin am-padding am-text-center admin-content-list ">
+        <li><a href="#" class="am-text-success"><span class="am-icon-btn am-icon-file-text"></span><br/>当前日期<br/><%= (new Date()).getFullYear()%>年<%= (new Date()).getMonth()+1%>月<%= (new Date()).getDate()%>日</a></li>
+        
+        
+      </ul>
+      
+            
+           
+            
+
+        </div>
+    </div>
+</div>
+<!-- content end -->
+
+
+	<% include footer.ejs %>

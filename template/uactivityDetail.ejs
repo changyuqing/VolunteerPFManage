@@ -1,0 +1,135 @@
+		<% include uheader.ejs %>
+ <!-- content start -->
+    <div class="admin-content">
+        <div class="admin-content-body">
+            <div class="am-cf am-padding am-padding-bottom-0">
+                <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">活动管理</strong> /
+                    <small>活动审查</small>
+                </div>
+            </div>
+
+            <hr>
+
+            <a style="color:white;text-decoration: none" href="/publisher/activitiesList"><button class="am-btn am-btn-primary am-btn-xs" type="button"><<返回</button></a>
+            <div class="am-cf am-margin-top">
+                <div class="am-u-md-4 am-text-right">
+                    活动名称
+                </div>
+                <div class="am-u-md-8 am-u-end col-end">
+                    <%= data.name %>
+                </div>
+            </div>
+            <div class="am-cf am-margin-top">
+                <div class="am-u-md-4 am-text-right">
+                    活动地址
+                </div>
+                <div class="am-u-md-8 am-u-end col-end">
+                    <%= data.address %>
+                </div>
+            </div>
+            <div class="am-cf am-margin-top">
+                <div class="am-u-md-4 am-text-right">
+                    简介
+                </div>
+                <div class="am-u-md-4 am-u-end col-end">
+                   <%= data.intro %>
+                </div>
+                <div class="am-u-md-4"></div>
+            </div>
+            <div class="am-cf am-margin-top">
+                <div class="am-u-md-4 am-text-right">
+                    时长
+                </div>
+                <div class="am-u-md-8 am-u-end col-end">
+                    <%= data.time %>
+                </div>
+            </div>
+            <div class="am-cf am-margin-top">
+                <div class="am-u-md-4 am-text-right">
+                    发布者
+                </div>
+                <div class="am-u-md-8 am-u-end col-end">
+                    <%= data.publisher %>
+                </div>
+            </div>
+            <div class="am-cf am-margin-top">
+                <div class="am-u-md-4 am-text-right">
+                    要求
+                </div>
+                <div class="am-u-md-8 am-u-end col-end">
+                   <%= data.requirement %>
+                </div>
+            </div>
+            <div class="am-cf am-margin-top">
+                <div class="am-u-md-4 am-text-right">
+                    活动图片
+                </div>
+                <div class="am-u-md-4 am-u-end col-end">
+                 <img src="<%= data.image %>" class="am-img-responsive" alt=""/> 
+                </div>
+                <div class="am-u-nd-4"></div>
+            </div>
+            <% if(user){ %>
+            <table class="am-table am-table-striped am-table-hover table-main">
+                <thead>
+                <tr>
+
+                    <th class="table-id">姓名</th>
+                    <th class="table-title">学号</th>
+                    <th class="table-date am-hide-sm-only">联系方式</th>
+                    <th class="table-state">状态</th>
+                    <th class="table-set">操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <% for(var i=0;i<user.length;i++){ %>
+                    <tr class="am-primary">
+                        <td><%=user[i]["_doc"].name%></td>
+                        <td><%=user[i]["_doc"].username%></td>
+                        <td><%=user[i]["_doc"].tel%></td>
+                        <% if(user[i]["_doc"].state==0){%>
+                        <td>未审核</td>
+                        
+                        <% }else if(user[i]["_doc"].state==1){%>
+                        <td>审核通过</td>
+                        <% }else if(user[i]["_doc"].state==-1){%>
+                        <td>审核不通过</td>
+                        <% }%>
+                        <td>
+                            <div class="am-btn-toolbar">
+                                <div class="am-btn-group am-btn-group-xs">
+                                    <a href="?act=pass&id=<%=user[i]._id%>&actiID=<%=user[i]["_doc"].actiID%>"><button type="button" class="am-btn am-btn-success " style="background:#4db14d"><span
+                                            class="am-icon-copy"></span> 通过
+                                    </button></a>
+                                    <a href="?act=reject&id=<%=user[i]._id%>&actiID=<%=user[i]["_doc"].actiID%>"><button type="button" class="am-btn am-btn-danger am-hide-sm-only"  style="background:#d93c37"><span
+                                            class="am-icon-copy"></span> 拒绝
+                                    </button></a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <%}%>
+                </tbody>
+            </table>
+            <%}%>
+
+
+
+
+
+
+
+
+
+
+        </div>
+    </div>
+
+    <footer class="admin-content-footer">
+        <hr>
+        <p class="am-padding-left">© 2014 AllMobilize, Inc. Licensed under MIT license.</p>
+    </footer>
+</div>
+<!-- content end -->
+
+	<% include footer.ejs %>
